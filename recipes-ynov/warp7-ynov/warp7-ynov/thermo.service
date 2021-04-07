@@ -1,0 +1,7 @@
+[Unit]
+Description=Sd Server service
+[Service]
+Type=simple
+ExecStart=/usr/bin/Thermo
+[Install]
+WantedBy=multi-user.target

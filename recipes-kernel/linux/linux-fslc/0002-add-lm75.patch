@@ -1,0 +1,55 @@
+From 9138dc13732c0785b87ab494d38a9bf275afc6da Mon Sep 17 00:00:00 2001
+From: OpenEmbedded <oe.patch@oe>
+Date: Fri, 26 Mar 2021 13:19:01 +0000
+Subject: [PATCH 2/2] add lm75
+
+---
+ arch/arm/boot/dts/imx7s-warp.dts | 18 +++++++++++++-----
+ 1 file changed, 13 insertions(+), 5 deletions(-)
+
+diff --git a/arch/arm/boot/dts/imx7s-warp.dts b/arch/arm/boot/dts/imx7s-warp.dts
+index 3085beb90b58..d0e6668a4583 100644
+--- a/arch/arm/boot/dts/imx7s-warp.dts
++++ b/arch/arm/boot/dts/imx7s-warp.dts
+@@ -14,7 +14,7 @@
+ 	compatible = "element14,imx7s-warp", "fsl,imx7s";
+ 
+ 	chosen {
+- 		bootargs = "console=ttymxc0,115200 root=/dev/mmcblk1p2 oops=panic panic=5 rootwait rw";
++ 		bootargs = "console=ttymxc0,115200 root=/dev/mmcblk1p2 oops=panic panic=5 rootwait rw";
+  	};
+ 
+ 	memory@80000000 {
+@@ -22,6 +22,8 @@
+ 		reg = <0x80000000 0x20000000>;
+ 	};
+ 
++	
++
+ 	leds {
+  		compatible = "gpio-leds";
+  		//status = "disable";
+@@ -272,10 +274,16 @@
+ 	status = "okay";
+ 
+ 	mcp23s08: mcp23s08@20{
+-	    compatible = "microchip,mcp23008";
+- 	    gpio-controller;
+-	    #gpio-cells = <2>;
+- 	    reg = <0x20>;
++ 	compatible = "microchip,mcp23008";
++ 	gpio-controller;
++ 	#gpio-cells = <2>;
++ 	reg = <0x20>;
++ 	//status = "okay let's go";
++	};
++
++	lm75@4b{
++		compatible = "national,lm75a";
++		reg = <0x4b>;
+ 	};
+ };
+ 
+-- 
+2.25.1
+

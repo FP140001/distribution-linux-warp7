@@ -1,0 +1,24 @@
+From 2b4f568063b2f1b80aa3015fd22b22c00456f4f0 Mon Sep 17 00:00:00 2001
+From: enzo <enzo@ynov.com>
+Date: Thu, 1 Apr 2021 13:13:46 +0000
+Subject: [PATCH] Modif led
+
+---
+ arch/arm/boot/dts/imx7s-warp.dts | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/arch/arm/boot/dts/imx7s-warp.dts b/arch/arm/boot/dts/imx7s-warp.dts
+index 55268ae6c91b..07fa2dad2f1d 100644
+--- a/arch/arm/boot/dts/imx7s-warp.dts
++++ b/arch/arm/boot/dts/imx7s-warp.dts
+@@ -31,7 +31,6 @@
+  		d0 {
+  		label = "d0";
+  		gpios = <&mcp23s08 0 GPIO_ACTIVE_LOW>;
+-		linux,default-trigger = "heartbeat";
+  		};
+ 
+  		d1 {
+-- 
+2.25.1
+
